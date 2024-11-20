@@ -1,0 +1,43 @@
+body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f8ff;
+      }
+header {
+      background-color: #afeeee;
+      padding: 20px;
+      text-align: center;
+      }
+nav {
+      margin: 20px 0;
+      }
+nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #000;
+      }
+footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #56c9db;
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      }
+.rubik-bubbles-regular {
+  font-family: "Rubik Bubbles", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  color: #2cbdd4;
+  }
+.font{
+font-size: 11px;
+}
+
+.fon{
+background-image: url_for('static/fon.jpeg') no-repeat center center/cover;
+color: #f0f8fff;
+padding: 10px 20px;
+text-align: width
+}

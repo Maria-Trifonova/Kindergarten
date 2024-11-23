@@ -26,7 +26,7 @@ def login():
         password = request.form['password']
 
         cur = mysql.connection.cursor()
-        cur.execute("SELECT * FROM parents WHERE phone = %s", (username,))
+        cur.execute("SELECT * FROM parents WHERE login = %s and password = %s" , (username, password))
         user = cur.fetchone()
         cur.close()
 
@@ -39,7 +39,7 @@ def login():
 
     return render_template('login.html')
 
-@app.route('/register', methods=['GET', 'POST'])
+@app.route('/registr', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
         username = request.form['username']
@@ -47,14 +47,14 @@ def register():
         hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
 
         cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO parents(phone, pssword) VALUES(%s, %s)", (username, hashed_password))
+        cur.execute("INSERT INTO parents(login, password) VALUES(%s, %s)", (username, hashed_password))
         mysql.connection.commit()
         cur.close()
 
         flash('Вы успешно зарегестрировались', 'success')
         return redirect(url_for('login'))
 
-    return render_template('register.html')
+    return render_template('registr.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
